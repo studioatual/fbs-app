@@ -1,26 +1,26 @@
 <template>
     <Page class="page">
         <ActionBar class="action-bar">
-            <!-- 
+            <!--
             Use the NavigationButton as a side-drawer button in Android
             because ActionItems are shown on the right side of the ActionBar
             -->
             <NavigationButton ios:visibility="collapsed" icon="res://menu" @tap="onDrawerButtonTap"></NavigationButton>
-            <!-- 
+            <!--
             Use the ActionItem for IOS with position set to left. Using the
             NavigationButton as a side-drawer button in iOS is not possible,
             because its function is to always navigate back in the application.
             -->
-            <ActionItem icon="res://menu" 
-                android:visibility="collapsed" 
+            <ActionItem icon="res://menu"
+                android:visibility="collapsed"
                 @tap="onDrawerButtonTap"
                 ios.position="left">
             </ActionItem>
-            <Label class="action-bar-title" text="Browse"></Label>
+            <Label class="action-bar-title" text="Clientes"></Label>
         </ActionBar>
 
         <GridLayout class="page__content">
-            <Label class="page__content-icon far" text.decode="&#xf1ea;"></Label>
+            <Label class="page__content-icon fas" text.decode="&#xf0c0;"></Label>
             <Label class="page__content-placeholder" :text="message"></Label>
         </GridLayout>
 
@@ -33,7 +33,7 @@
 
     export default {
         mounted() {
-            SelectedPageService.getInstance().updateSelectedPage("Browse");
+            SelectedPageService.getInstance().updateSelectedPage("Clients");
         },
         computed: {
             message() {

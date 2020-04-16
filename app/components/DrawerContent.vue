@@ -1,47 +1,47 @@
 <template lang="html">
-<GridLayout rows="auto, *" class="nt-drawer__content">
-            <StackLayout row="0" class="nt-drawer__header">
-                <Image class="nt-drawer__header-image" src="~/assets/img/logo2.png" />
-                <!-- <Image class="nt-drawer__header-image fas t-36" src.decode="font://&#xf2bd;"></Image> -->
-                <Label class="nt-drawer__header-brand" text="FBS Sistemas"></Label>
+    <GridLayout rows="auto, *" class="nt-drawer__content">
+        <StackLayout row="0" class="nt-drawer__header">
+            <Image class="nt-drawer__header-image" src="~/assets/img/logo2.png" />
+            <!-- <Image class="nt-drawer__header-image fas t-36" src.decode="font://&#xf2bd;"></Image> -->
+            <Label class="nt-drawer__header-brand" text="FBS Sistemas"></Label>
+        </StackLayout>
+
+        <ScrollView row="1" class="nt-drawer__body">
+            <StackLayout>
+                <GridLayout columns="auto, *" :class="'nt-drawer__list-item' + (selectedPage === 'Home' ? ' -selected': '')" @tap="onNavigationItemTap(Home)">
+                    <Label col="0" text.decode="&#xf015;" class="nt-icon fas"></Label>
+                    <Label col="1" text="Home" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" :class="'nt-drawer__list-item' + (selectedPage === 'Clients' ? ' -selected': '')" @tap="onNavigationItemTap(Clients)">
+                    <Label col="0" text.decode="&#xf0c0;" class="nt-icon fas"></Label>
+                    <Label col="1" text="Clientes" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" :class="'nt-drawer__list-item' + (selectedPage === 'Search' ? ' -selected': '')" @tap="onNavigationItemTap(Search)">
+                    <Label col="0" text.decode="&#xf002;" class="nt-icon fas"></Label>
+                    <Label col="1" text="Search" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" :class="'nt-drawer__list-item' + (selectedPage === 'Featured' ? ' -selected': '')" @tap="onNavigationItemTap(Featured)">
+                    <Label col="0" text.decode="&#xf005;" class="nt-icon fas"></Label>
+                    <Label col="1" text="Featured" class="p-r-10"></Label>
+                </GridLayout>
+
+                <StackLayout class="hr"></StackLayout>
+
+                <GridLayout columns="auto, *" :class="'nt-drawer__list-item' + (selectedPage === 'Settings' ? ' -selected': '')" @tap="onNavigationItemTap(Settings)">
+                    <Label col="0" text.decode="&#xf013;" class="nt-icon fas"></Label>
+                    <Label col="1" text="Settings" class="p-r-10"></Label>
+                </GridLayout>
             </StackLayout>
-
-            <ScrollView row="1" class="nt-drawer__body">
-                <StackLayout>
-                    <GridLayout columns="auto, *" :class="'nt-drawer__list-item' + (selectedPage === 'Home' ? ' -selected': '')" @tap="onNavigationItemTap(Home)">
-                        <Label col="0" text.decode="&#xf015;" class="nt-icon fas"></Label>
-                        <Label col="1" text="Home" class="p-r-10"></Label>
-                    </GridLayout>
-
-                    <GridLayout columns="auto, *" :class="'nt-drawer__list-item' + (selectedPage === 'Browse' ? ' -selected': '')" @tap="onNavigationItemTap(Browse)">
-                        <Label col="0" text.decode="&#xf1ea;" class="nt-icon far"></Label>
-                        <Label col="1" text="Browse" class="p-r-10"></Label>
-                    </GridLayout>
-
-                    <GridLayout columns="auto, *" :class="'nt-drawer__list-item' + (selectedPage === 'Search' ? ' -selected': '')" @tap="onNavigationItemTap(Search)">
-                        <Label col="0" text.decode="&#xf002;" class="nt-icon fas"></Label>
-                        <Label col="1" text="Search" class="p-r-10"></Label>
-                    </GridLayout>
-
-                    <GridLayout columns="auto, *" :class="'nt-drawer__list-item' + (selectedPage === 'Featured' ? ' -selected': '')" @tap="onNavigationItemTap(Featured)">
-                        <Label col="0" text.decode="&#xf005;" class="nt-icon fas"></Label>
-                        <Label col="1" text="Featured" class="p-r-10"></Label>
-                    </GridLayout>
-
-                    <StackLayout class="hr"></StackLayout>
-
-                    <GridLayout columns="auto, *" :class="'nt-drawer__list-item' + (selectedPage === 'Settings' ? ' -selected': '')" @tap="onNavigationItemTap(Settings)">
-                        <Label col="0" text.decode="&#xf013;" class="nt-icon fas"></Label>
-                        <Label col="1" text="Settings" class="p-r-10"></Label>
-                    </GridLayout>
-                </StackLayout>
-            </ScrollView>
-        </GridLayout>
+        </ScrollView>
+    </GridLayout>
 </template>
 
 <script>
     import Home from "./Home";
-    import Browse from "./Browse";
+    import Clients from "./Clients";
     import Featured from "./Featured";
     import Search from "./Search";
     import Settings from "./Settings";
@@ -56,7 +56,7 @@
         data () {
             return {
                 Home: Home,
-                Browse: Browse,
+                Clients: Clients,
                 Featured: Featured,
                 Search: Search,
                 Settings: Settings,
@@ -65,7 +65,7 @@
         },
         components: {
             Home,
-            Browse,
+            Clients,
             Featured,
             Search,
             Settings
@@ -89,6 +89,7 @@
     // Custom styles
 
     .nt-drawer__header {
+        padding: 15;
         background-size: 100% 100%;
         background: url(~/assets/img/fnd.jpg) no-repeat;
     }
